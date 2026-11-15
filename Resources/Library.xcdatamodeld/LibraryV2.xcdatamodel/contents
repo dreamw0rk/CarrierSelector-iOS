@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23501" systemVersion="24A335" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="2">
+    <entity name="Favorite" representedClassName="NSManagedObject" syncable="YES">
+        <attribute name="profileID" attributeType="String"/>
+        <uniquenessConstraints><uniquenessConstraint><constraint value="profileID"/></uniquenessConstraint></uniquenessConstraints>
+    </entity>
+    <entity name="Operation" representedClassName="NSManagedObject" syncable="YES">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="title" attributeType="String"/>
+        <attribute name="detail" attributeType="String"/>
+        <attribute name="simKey" optional="YES" attributeType="String"/>
+        <attribute name="simLabel" optional="YES" attributeType="String"/>
+        <attribute name="contextData" optional="YES" attributeType="Binary"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+</model>

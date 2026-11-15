@@ -1,0 +1,5 @@
+vendor/** linguist-vendored
+Resources/models.json linguist-generated
+Resources/profiles.json linguist-generated
+Resources/profile-capabilities.json linguist-generated
+Resources/native-profiles.json linguist-generated

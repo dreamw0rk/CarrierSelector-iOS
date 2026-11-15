@@ -1,0 +1,187 @@
+{
+  "sources": [
+    {
+      "id": "carriersim",
+      "title": "CarrierSIM: рекомендации и результаты проверок",
+      "url": "https://github.com/ios-bundles/CarrierSIM/blob/feb9e2fd6887228ade281c4733866e98df416047/README.md",
+      "checked": "2026-11-15"
+    },
+    {
+      "id": "selector",
+      "title": "CarrierSelector: совместимость Wi-Fi Calling с МТС",
+      "url": "https://github.com/carrierselector/CarrierSelector/blob/0c5b3ba2fab9f3142171b79f3d680ba5be4440ef/carrier_app.py#L1125-L1140",
+      "checked": "2026-11-15"
+    }
+  ],
+  "rules": [
+    {
+      "identifier": "com.apple.Vodafone_ro",
+      "versions": [
+        "72.0",
+        "73.0"
+      ],
+      "operators": [
+        "mts"
+      ],
+      "candidate": true,
+      "reason": "Основной кандидат для проверки VoWiFi на МТС: этот пакет выбран в настройках CarrierSIM. Есть отчёт о звонке через Wi-Fi на iPhone 17.",
+      "limitations": [
+        "Работа в роуминге может отличаться. Объединение вызовов использует сервер оператора-донора."
+      ],
+      "sourceIDs": [
+        "carriersim",
+        "selector"
+      ],
+      "scope": "В источнике нет точной версии пакета. Для версий нашего каталога это кандидат для повторной проверки, а не подтверждённый результат. CarrierSelector отдельно указывает 73.0 для МТС.",
+      "summary": "Вариант для звонков по Wi-Fi на МТС."
+    },
+    {
+      "identifier": "com.apple.Vodafone_hu",
+      "versions": [
+        "72.0",
+        "73.0"
+      ],
+      "operators": [
+        "megafon",
+        "beeline",
+        "t2",
+        "yota",
+        "other"
+      ],
+      "candidate": true,
+      "reason": "Базовый пакет CarrierSIM для российских SIM, кроме МТС. Имеет смысл сравнить VoWiFi, VoLTE и EVS со штатным профилем.",
+      "limitations": [
+        "МегаФон: SMS по Wi-Fi могут работать нестабильно.",
+        "Билайн: подключите VoWiFi на своём номере.",
+        "T2: доступность VoWiFi зависит от сети.",
+        "Yota и другие виртуальные операторы: доступность услуг зависит от тарифа и сети."
+      ],
+      "sourceIDs": [
+        "carriersim"
+      ],
+      "scope": "В источнике нет точной версии пакета. Для версий нашего каталога это кандидат для повторной проверки, а не подтверждённый результат.",
+      "summary": "Вариант для VoWiFi, VoLTE и EVS на российских SIM, кроме МТС."
+    },
+    {
+      "identifier": "com.apple.MTS_ua",
+      "versions": [
+        "72.0",
+        "73.0"
+      ],
+      "operators": [
+        "t2"
+      ],
+      "candidate": true,
+      "reason": "Альтернатива для T2: в CarrierSIM описаны сообщения о регистрации VoWiFi с этим пакетом.",
+      "limitations": [
+        "Результат зависит от региона и доступности VoWiFi у T2. Для МТС России этот вариант не подобран."
+      ],
+      "sourceIDs": [
+        "carriersim"
+      ],
+      "scope": "В источнике нет точной версии пакета. Для версий нашего каталога это кандидат для повторной проверки, а не подтверждённый результат.",
+      "summary": "Вариант для звонков по Wi-Fi на T2."
+    },
+    {
+      "identifier": "com.apple.Telia_az",
+      "versions": [
+        "72.0",
+        "73.0"
+      ],
+      "operators": [
+        "t2"
+      ],
+      "candidate": true,
+      "reason": "Альтернатива для T2: упомянут среди пакетов с сообщениями о работе VoWiFi.",
+      "limitations": [
+        "Доступность зависит от региона и вашего номера."
+      ],
+      "sourceIDs": [
+        "carriersim"
+      ],
+      "scope": "В источнике нет точной версии пакета. Для версий нашего каталога это кандидат для повторной проверки, а не подтверждённый результат.",
+      "summary": "Ещё один вариант для звонков по Wi-Fi на T2."
+    },
+    {
+      "identifier": "com.apple.Telia_dk",
+      "versions": [
+        "68.0"
+      ],
+      "operators": [
+        "mts"
+      ],
+      "candidate": true,
+      "reason": "Кандидат для МТС: CarrierSelector указывает совместимые параметры шифрования VoWiFi именно у версии 68.0.",
+      "limitations": [
+        "Доступен не для всех моделей iPhone."
+      ],
+      "sourceIDs": [
+        "selector"
+      ],
+      "scope": "Сведения относятся к 68.0. На 72.0 и 73.0 их переносить нельзя.",
+      "summary": "Версия 68.0 подходит по настройкам VoWiFi для МТС."
+    },
+    {
+      "identifier": "com.apple.Telia_dk",
+      "versions": [
+        "72.0",
+        "73.0"
+      ],
+      "operators": [
+        "mts"
+      ],
+      "candidate": false,
+      "reason": "Не включён в отбор для МТС: CarrierSelector указывает несовместимость шифров VoWiFi у Telia_dk 69–73 со шлюзом МТС.",
+      "limitations": [],
+      "sourceIDs": [
+        "selector"
+      ],
+      "scope": "Ограничение касается VoWiFi на МТС, а не всех функций и операторов.",
+      "summary": "VoWiFi на МТС: настройки шифрования несовместимы со шлюзом оператора."
+    },
+    {
+      "identifier": "com.apple.Nova_is",
+      "versions": [
+        "72.0.1",
+        "73.0"
+      ],
+      "operators": [
+        "t2"
+      ],
+      "candidate": false,
+      "reason": "Не включён в обычный отбор: описанный сценарий T2 требовал отдельной настройки DNS/ePDG.",
+      "limitations": [
+        "Приложение такую настройку не выполняет."
+      ],
+      "sourceIDs": [
+        "carriersim"
+      ],
+      "scope": "В источнике нет точной версии пакета. Для версий нашего каталога это кандидат для повторной проверки, а не подтверждённый результат.",
+      "summary": "Для VoWiFi на T2 нужна дополнительная настройка DNS/ePDG."
+    },
+    {
+      "identifier": "com.apple.Vodafone_tr",
+      "versions": [
+        "72.0.1",
+        "72.1",
+        "73.0"
+      ],
+      "operators": [
+        "mts",
+        "megafon",
+        "beeline",
+        "t2",
+        "yota",
+        "other"
+      ],
+      "candidate": false,
+      "reason": "Не включён в отбор: местный номер активации iMessage/FaceTime в пакете создаёт риск повторной активации из РФ.",
+      "limitations": [],
+      "sourceIDs": [
+        "carriersim"
+      ],
+      "scope": "Ограничение дополнительно проверяется по полю номера активации в выбранном пакете.",
+      "summary": "Возможны проблемы с активацией iMessage и FaceTime из России."
+    }
+  ]
+}
